@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Check coverage",
+            "type": "shell",
+            "command": "pdm",
+            "args": [
+                "run",
+                "pytest",
+                "--diff-symbols",
+                "--hypothesis-verbosity=normal",
+                "--hypothesis-show-statistics",
+                "--cov-report=xml",
+                "--cov=repid",
+            ],
+            "group": "test",
+        },
+        {
+            "label": "PDM sync",
+            "type": "shell",
+            "command": "pdm sync -G :all --clean",
+            "presentation": {
+                "reveal": "silent",
+                "showReuseMessage": false,
+            },
+            "problemMatcher": []
+        },
+    ]
+}
